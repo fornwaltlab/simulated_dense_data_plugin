@@ -1,0 +1,9 @@
+# Temporary files
+*.asv
+*.m~
+
+# Binary MAT files
+*.mat
+
+# Mac Files
+*.DS_Store

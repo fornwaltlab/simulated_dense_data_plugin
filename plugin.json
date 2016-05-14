@@ -1,0 +1,9 @@
+{
+    "package": "simulation",
+    "version": "0.1.0",
+    "description": "Generates a 2D cardiac displacement field with twist",
+    "name": "Simulate Displacements",
+    "author": "Jonathan Suever",
+    "email": "suever@gmail.com",
+    "url": "https://github.com/suever/simulated_dense_data_plugin"
+}
