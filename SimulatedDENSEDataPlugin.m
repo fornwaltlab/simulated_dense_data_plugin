@@ -6,7 +6,7 @@ classdef SimulatedDENSEDataPlugin < plugins.DENSEanalysisPlugin
     % Copyright (c) 2016, Jonathan Suever
 
     methods
-        function validate(self, data)
+        function validate(varargin)
             % validate - Check if the plugin can run.
             %
             %   Performs validation to ensure that the state of the program
@@ -19,9 +19,7 @@ classdef SimulatedDENSEDataPlugin < plugins.DENSEanalysisPlugin
             %   data:   Object, DENSEdata object containing all underlying
             %           data from the DENSEanalysis program.
 
-            % Assert that image data base been loaded
-            assert(~isempty(data.seq), ...
-                'You must load imaging data into DENSEanalysis first.')
+            % This plugin will always be able to be run
         end
 
         function run(self, data)
@@ -33,6 +31,16 @@ classdef SimulatedDENSEDataPlugin < plugins.DENSEanalysisPlugin
             % INPUTS:
             %   data:   Object, DENSEdata object containing all underlying
             %           data from the DENSEanalysis program.
+
+            params = getfield(self.Config, 'Parameters', struct());
+
+            d = plugins.simulation.DNSCreator('Data', data, struct(params));
+            L = addlistener(d, 'StateChanged', @(s,e)self.updateConfig(e));
+            addlistener(d, 'ObjectBeingDestroyed', @(s,e)self.updateConfig(d))
+        end
+
+        function updateConfig(self, src)
+            setfield(self.Config, 'Parameters', struct(src));
         end
     end
 end
