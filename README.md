@@ -9,7 +9,7 @@ Generates a 2D cardiac displacement field with twist
 After installation of *DENSEanalysis*, run the following from the MATLAB command line:
 
 ```matlab
-plugins.PluginManager.import('https://github.com/suever/simulated_dense_data_plugin')
+plugins.PluginManager.import('https://github.com/fornwaltlab/simulated_dense_data_plugin')
 ```
 
 ## Credits
