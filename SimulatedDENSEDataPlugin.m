@@ -3,7 +3,7 @@ classdef SimulatedDENSEDataPlugin < plugins.DENSEanalysisPlugin
     %
     %   Generates a 2D cardiac displacement field with twist
     %
-    % Copyright (c) 2016, Jonathan Suever
+    % Copyright (c) 2016, Cardiac Imaging Technology Lab
 
     methods
         function validate(varargin)
