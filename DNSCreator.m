@@ -186,7 +186,7 @@ classdef DNSCreator < hgsetget
             %               be provided to allow the user to select a file.
 
             % If Data is defined, just load it into that
-            if isvalid(self.Data) && ~isequal(self.Data, [])
+            if ~isempty(self.Data) && isobject(self.Data) && isvalid(self.Data)
                 self.Data.load(@(s,p)deal(self.DNS, '', ''));
                 return;
             end
