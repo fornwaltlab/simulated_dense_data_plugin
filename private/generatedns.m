@@ -297,6 +297,8 @@ function dns = generatedns(varargin)
     seq.WindowCenter = 2048;
     seq.WindowWidth = 2048;
 
+    seq.NumberInSequence = nFrames;
+
     seq = repmat(seq, [3 1]);
 
     seq(1).DENSEid = 'mag.overall';
